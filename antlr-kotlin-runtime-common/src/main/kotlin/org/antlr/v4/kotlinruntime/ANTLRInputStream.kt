@@ -108,17 +108,15 @@ open class ANTLRInputStream : CharStream {
     fun reset() {
         p = 0
     }
-//
+
     override fun consume() {
         if (p >= n) {
             assert(LA(1) == IntStream.EOF)
             throw IllegalStateException("cannot consume EOF")
         }
 
-        //System.out.println("prev p="+p+", c="+(char)data[p]);
         if (p < n) {
             p++
-            //System.out.println("p moves to "+p+" (c='"+(char)data[p]+"')");
         }
     }
 
@@ -135,11 +133,8 @@ open class ANTLRInputStream : CharStream {
         }
 
         return if (p + i - 1 >= n) {
-            //System.out.println("char LA("+i+")=EOF; p="+p);
             IntStream.EOF
         } else data!![p + i - 1]!!.toInt()
-        //System.out.println("char LA("+i+")="+(char)data[p+i-1]+"; p="+p);
-        //System.out.println("LA("+i+"); p="+p+" n="+n+" data.length="+data.length);
     }
 
     fun LT(i: Int): Int {

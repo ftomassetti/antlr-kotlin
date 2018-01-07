@@ -9,11 +9,12 @@ package org.antlr.v4.kotlinruntime
 import com.strumenta.kotlinmultiplatform.BitSet
 import org.antlr.v4.kotlinruntime.atn.ATNConfigSet
 import org.antlr.v4.kotlinruntime.atn.DecisionInfo
-//import ParserATNSimulator
 import org.antlr.v4.kotlinruntime.atn.PredictionMode
 import org.antlr.v4.kotlinruntime.dfa.DFA
 
-/** How to emit recognition errors.  */
+/**
+ * How to emit recognition errors.
+ */
 interface ANTLRErrorListener {
     /**
      * Upon syntax error, notify any interested parties. This is not how to

@@ -11,7 +11,9 @@ import com.strumenta.kotlinmultiplatform.Math
 import com.strumenta.kotlinmultiplatform.assert
 
 /** [Set] implementation with closed hashing (open addressing).  */
-open class Array2DHashSet<T> constructor(comparator: AbstractEqualityComparator<in T>? = null, initialCapacity: Int = INITAL_CAPACITY, initialBucketCapacity: Int = INITAL_BUCKET_CAPACITY) : MutableSet<T> {
+open class Array2DHashSet<T> constructor(comparator: AbstractEqualityComparator<in T>? = null,
+                                         initialCapacity: Int = INITAL_CAPACITY,
+                                         initialBucketCapacity: Int = INITAL_BUCKET_CAPACITY) : MutableSet<T> {
 
     override fun remove(element: T): Boolean {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
