@@ -2,7 +2,8 @@ buildscript {
     ext.kotlin_version = '1.2.10'
 
     repositories {
-        mavenCentral()
+        mavenLocal()
+        mavenCentral()        
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -11,9 +12,12 @@ buildscript {
 
 apply plugin: 'kotlin'
 apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 repositories {
-    mavenCentral()
+    mavenLocal()
+    mavenCentral()    
 }
 
 dependencies {
@@ -22,4 +26,15 @@ dependencies {
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+}
+
+group='com.strumenta'
+version='0.1-SNAPSHOT'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
