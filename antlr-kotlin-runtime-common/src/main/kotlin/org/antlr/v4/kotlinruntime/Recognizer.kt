@@ -12,6 +12,9 @@ import com.strumenta.kotlinmultiplatform.WeakHashMap
 import org.antlr.v4.kotlinruntime.atn.ATN
 import org.antlr.v4.kotlinruntime.atn.ATNSimulator
 import org.antlr.v4.kotlinruntime.atn.ParseInfo
+import org.antlr.v4.kotlinruntime.error.ANTLRErrorListener
+import org.antlr.v4.kotlinruntime.error.ConsoleErrorListener
+import org.antlr.v4.kotlinruntime.error.ProxyErrorListener
 import org.antlr.v4.kotlinruntime.misc.Utils
 
 typealias CopyOnWriteArrayList<E> = ArrayList<E>

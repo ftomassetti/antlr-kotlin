@@ -4,7 +4,11 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.error
+
+import org.antlr.v4.kotlinruntime.Parser
+import org.antlr.v4.kotlinruntime.RecognitionException
+import org.antlr.v4.kotlinruntime.Token
 
 /**
  * The interface for defining strategies to deal with syntax errors encountered

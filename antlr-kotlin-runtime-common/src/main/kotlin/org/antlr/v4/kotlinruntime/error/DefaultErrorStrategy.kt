@@ -4,9 +4,10 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.error
 
 import com.strumenta.kotlinmultiplatform.errMessage
+import org.antlr.v4.kotlinruntime.*
 import org.antlr.v4.kotlinruntime.atn.states.ATNState
 import org.antlr.v4.kotlinruntime.atn.transitions.RuleTransition
 import org.antlr.v4.kotlinruntime.misc.IntervalSet

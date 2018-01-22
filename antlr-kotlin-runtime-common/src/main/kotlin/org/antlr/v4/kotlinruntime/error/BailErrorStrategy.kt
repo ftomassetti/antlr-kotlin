@@ -4,8 +4,9 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.error
 
+import org.antlr.v4.kotlinruntime.*
 import org.antlr.v4.kotlinruntime.misc.ParseCancellationException
 
 /**

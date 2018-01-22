@@ -4,9 +4,12 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.error
 
 import com.strumenta.kotlinmultiplatform.BitSet
+import org.antlr.v4.kotlinruntime.Parser
+import org.antlr.v4.kotlinruntime.RecognitionException
+import org.antlr.v4.kotlinruntime.Recognizer
 import org.antlr.v4.kotlinruntime.atn.ATNConfigSet
 import org.antlr.v4.kotlinruntime.atn.DecisionInfo
 //import ParserATNSimulator

@@ -5,15 +5,12 @@
  */
 package org.antlr.v4.kotlinruntime
 
-import com.strumenta.kotlinmultiplatform.Type
-import com.strumenta.kotlinmultiplatform.TypeDeclarator
 import org.antlr.v4.kotlinruntime.atn.*
-import org.antlr.v4.kotlinruntime.dfa.DFA
+import org.antlr.v4.kotlinruntime.error.ANTLRErrorStrategy
+import org.antlr.v4.kotlinruntime.error.DefaultErrorStrategy
 import org.antlr.v4.kotlinruntime.misc.IntegerStack
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
 import org.antlr.v4.kotlinruntime.tree.*
-import org.antlr.v4.kotlinruntime.tree.pattern.ParseTreePattern
-import org.antlr.v4.kotlinruntime.tree.pattern.ParseTreePatternMatcher
 
 //
 ///** This is all the parsing support code essentially; most of it is error recovery stuff.  */

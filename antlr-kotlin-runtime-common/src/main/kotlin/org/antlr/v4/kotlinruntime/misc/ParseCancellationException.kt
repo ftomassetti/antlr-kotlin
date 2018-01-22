@@ -6,7 +6,7 @@
 
 package org.antlr.v4.kotlinruntime.misc
 
-import org.antlr.v4.kotlinruntime.BailErrorStrategy
+import org.antlr.v4.kotlinruntime.error.BailErrorStrategy
 import org.antlr.v4.kotlinruntime.RecognitionException
 
 /**

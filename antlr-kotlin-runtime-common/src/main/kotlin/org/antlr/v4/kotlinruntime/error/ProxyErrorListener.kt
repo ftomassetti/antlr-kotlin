@@ -3,26 +3,40 @@
  * Use of this file is governed by the BSD 3-clause license that
  * can be found in the LICENSE.txt file in the project root.
  */
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.error
 
 import com.strumenta.kotlinmultiplatform.BitSet
+import com.strumenta.kotlinmultiplatform.NullPointerException
+import org.antlr.v4.kotlinruntime.Parser
+import org.antlr.v4.kotlinruntime.RecognitionException
+import org.antlr.v4.kotlinruntime.Recognizer
 import org.antlr.v4.kotlinruntime.atn.ATNConfigSet
 import org.antlr.v4.kotlinruntime.dfa.DFA
 
 /**
- * Provides an empty default implementation of [ANTLRErrorListener]. The
- * default implementation of each method does nothing, but can be overridden as
- * necessary.
+ * This implementation of [ANTLRErrorListener] dispatches all calls to a
+ * collection of delegate listeners. This reduces the effort required to support multiple
+ * listeners.
  *
  * @author Sam Harwell
  */
-open class BaseErrorListener : ANTLRErrorListener {
+class ProxyErrorListener(private val delegates: Collection<ANTLRErrorListener>?) : ANTLRErrorListener {
+
+    init {
+        if (delegates == null) {
+            throw NullPointerException("delegates")
+        }
+    }
+
     override fun syntaxError(recognizer: Recognizer<*, *>,
                              offendingSymbol: Any?,
                              line: Int,
                              charPositionInLine: Int,
                              msg: String,
                              e: RecognitionException) {
+        for (listener in delegates!!) {
+            listener.syntaxError(recognizer, offendingSymbol, line, charPositionInLine, msg, e)
+        }
     }
 
     override fun reportAmbiguity(recognizer: Parser,
@@ -32,6 +46,9 @@ open class BaseErrorListener : ANTLRErrorListener {
                                  exact: Boolean,
                                  ambigAlts: BitSet,
                                  configs: ATNConfigSet) {
+        for (listener in delegates!!) {
+            listener.reportAmbiguity(recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs)
+        }
     }
 
     override fun reportAttemptingFullContext(recognizer: Parser,
@@ -40,6 +57,9 @@ open class BaseErrorListener : ANTLRErrorListener {
                                              stopIndex: Int,
                                              conflictingAlts: BitSet,
                                              configs: ATNConfigSet) {
+        for (listener in delegates!!) {
+            listener.reportAttemptingFullContext(recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs)
+        }
     }
 
     override fun reportContextSensitivity(recognizer: Parser,
@@ -48,5 +68,8 @@ open class BaseErrorListener : ANTLRErrorListener {
                                           stopIndex: Int,
                                           prediction: Int,
                                           configs: ATNConfigSet) {
+        for (listener in delegates!!) {
+            listener.reportContextSensitivity(recognizer, dfa, startIndex, stopIndex, prediction, configs)
+        }
     }
 }
