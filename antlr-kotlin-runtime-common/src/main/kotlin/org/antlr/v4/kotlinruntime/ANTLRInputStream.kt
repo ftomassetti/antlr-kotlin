@@ -44,63 +44,13 @@ open class ANTLRInputStream : CharStream {
         this.data = input.toCharArray()
         this.n = input.length
     }
-//
-//    /** This is the preferred constructor for strings as no data is copied  */
-//    constructor(data: CharArray, numberOfActualCharsInArray: Int) {
-//        this.data = data
-//        this.n = numberOfActualCharsInArray
-//    }
-//
-//    constructor(r: Reader, initialSize: Int = INITIAL_BUFFER_SIZE, readChunkSize: Int = READ_BUFFER_SIZE) {
-//        load(r, initialSize, readChunkSize)
-//    }
-//
-//    constructor(input: InputStream) : this(InputStreamReader(input), INITIAL_BUFFER_SIZE) {
-//    }
-//
-//    constructor(input: InputStream, initialSize: Int) : this(InputStreamReader(input), initialSize) {
-//    }
-//
-//    constructor(input: InputStream, initialSize: Int, readChunkSize: Int) : this(InputStreamReader(input), initialSize, readChunkSize) {
-//    }
-//
-//    fun load(r: Reader?, size: Int, readChunkSize: Int) {
-//        var size = size
-//        var readChunkSize = readChunkSize
-//        if (r == null) {
-//            return
-//        }
-//        if (size <= 0) {
-//            size = INITIAL_BUFFER_SIZE
-//        }
-//        if (readChunkSize <= 0) {
-//            readChunkSize = READ_BUFFER_SIZE
-//        }
-//        // System.out.println("load "+size+" in chunks of "+readChunkSize);
-//        try {
-//            // alloc initial buffer size.
-//            data = CharArray(size)
-//            // read all the data in chunks of readChunkSize
-//            var numRead = 0
-//            var p = 0
-//            do {
-//                if (p + readChunkSize > data.size) { // overflow?
-//                    // System.out.println("### overflow p="+p+", data.length="+data.length);
-//                    data = Arrays.copyOf(data, data.size * 2)
-//                }
-//                numRead = r.read(data, p, readChunkSize)
-//                // System.out.println("read "+numRead+" chars; p was "+p+" is now "+(p+numRead));
-//                p += numRead
-//            } while (numRead != -1) // while not EOF
-//            // set the actual size of the data available;
-//            // EOF subtracted one above in p+=numRead; add one back
-//            n = p + 1
-//            //System.out.println("n="+n);
-//        } finally {
-//            r.close()
-//        }
-//    }
-//
+
+    /** This is the preferred constructor for strings as no data is copied  */
+    constructor(data: CharArray, numberOfActualCharsInArray: Int) {
+        this.data = data
+        this.n = numberOfActualCharsInArray
+    }
+
     /** Reset the stream so that it's in the same state it was
      * when the object was created *except* the data array is not
      * touched.
@@ -108,17 +58,15 @@ open class ANTLRInputStream : CharStream {
     fun reset() {
         p = 0
     }
-//
+
     override fun consume() {
         if (p >= n) {
             assert(LA(1) == IntStream.EOF)
             throw IllegalStateException("cannot consume EOF")
         }
 
-        //System.out.println("prev p="+p+", c="+(char)data[p]);
         if (p < n) {
             p++
-            //System.out.println("p moves to "+p+" (c='"+(char)data[p]+"')");
         }
     }
 
@@ -135,11 +83,8 @@ open class ANTLRInputStream : CharStream {
         }
 
         return if (p + i - 1 >= n) {
-            //System.out.println("char LA("+i+")=EOF; p="+p);
             IntStream.EOF
         } else data!![p + i - 1]!!.toInt()
-        //System.out.println("char LA("+i+")="+(char)data[p+i-1]+"; p="+p);
-        //System.out.println("LA("+i+"); p="+p+" n="+n+" data.length="+data.length);
     }
 
     fun LT(i: Int): Int {
@@ -157,12 +102,12 @@ open class ANTLRInputStream : CharStream {
     override fun size(): Int {
         return n
     }
-//
+
     /** mark/release do nothing; we have entire buffer  */
     override fun mark(): Int {
         return -1
     }
-//
+
     override fun release(marker: Int) {}
 
     /** consume() ahead until p==index; can't just set p=index as we must
@@ -187,14 +132,7 @@ open class ANTLRInputStream : CharStream {
         if (stop >= n) stop = n - 1
         val count = stop - start + 1
         return if (start >= n) "" else data!!.copyOfRange(start, start+count).convertToString()
-        //		System.err.println("data: "+Arrays.toString(data)+", n="+n+
-        //						   ", start="+start+
-        //						   ", stop="+stop);
     }
-
-//    override fun toString(): String {
-//        return String(data)
-//    }
 
     companion object {
         val READ_BUFFER_SIZE = 1024
