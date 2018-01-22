@@ -10,6 +10,9 @@ import org.antlr.v4.kotlinruntime.error.ANTLRErrorStrategy
 import org.antlr.v4.kotlinruntime.error.DefaultErrorStrategy
 import org.antlr.v4.kotlinruntime.misc.IntegerStack
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenFactory
+import org.antlr.v4.kotlinruntime.token.TokenStream
 import org.antlr.v4.kotlinruntime.tree.*
 
 //

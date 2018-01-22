@@ -4,12 +4,13 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.token
 
 import com.strumenta.kotlinmultiplatform.Arrays
 import com.strumenta.kotlinmultiplatform.Math
 import com.strumenta.kotlinmultiplatform.arraycopy
 import com.strumenta.kotlinmultiplatform.assert
+import org.antlr.v4.kotlinruntime.RuleContext
 import org.antlr.v4.kotlinruntime.misc.Interval
 
 class UnbufferedTokenStream<T : Token> constructor(tokenSource: TokenSource, bufferSize: Int = 256) : TokenStream {
@@ -91,7 +92,7 @@ class UnbufferedTokenStream<T : Token> constructor(tokenSource: TokenSource, buf
         val bufferStartIndex = bufferStartIndex
         if (i < bufferStartIndex || i >= bufferStartIndex + n) {
             throw IndexOutOfBoundsException("get(" + i + ") outside buffer: " +
-                    bufferStartIndex + ".." + (bufferStartIndex + n))
+                    bufferStartIndex + "" + (bufferStartIndex + n))
         }
         return tokens[i - bufferStartIndex]!!
     }
@@ -249,7 +250,7 @@ class UnbufferedTokenStream<T : Token> constructor(tokenSource: TokenSource, buf
             throw IllegalArgumentException("cannot seek to negative index " + index)
         } else if (i >= n) {
             throw UnsupportedOperationException("seek to index outside buffer: " +
-                    index + " not in " + bufferStartIndex + ".." + (bufferStartIndex + n))
+                    index + " not in " + bufferStartIndex + "" + (bufferStartIndex + n))
         }
 
         p = i
@@ -274,7 +275,7 @@ class UnbufferedTokenStream<T : Token> constructor(tokenSource: TokenSource, buf
         val stop = interval.b
         if (start < bufferStartIndex || stop > bufferStopIndex) {
             throw UnsupportedOperationException("interval " + interval + " not in token buffer window: " +
-                    bufferStartIndex + ".." + bufferStopIndex)
+                    bufferStartIndex + "" + bufferStopIndex)
         }
 
         val a = start - bufferStartIndex

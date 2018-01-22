@@ -6,10 +6,7 @@
 
 package org.antlr.v4.kotlinruntime.atn
 
-import org.antlr.v4.kotlinruntime.ParserRuleContext
-import org.antlr.v4.kotlinruntime.Recognizer
-import org.antlr.v4.kotlinruntime.RuleContext
-import org.antlr.v4.kotlinruntime.TokenStream
+import org.antlr.v4.kotlinruntime.token.TokenStream
 
 /**
  * This class represents profiling event information for semantic predicate

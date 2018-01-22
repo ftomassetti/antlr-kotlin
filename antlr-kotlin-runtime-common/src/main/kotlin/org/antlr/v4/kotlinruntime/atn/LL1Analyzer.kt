@@ -8,7 +8,7 @@ package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.BitSet
 import org.antlr.v4.kotlinruntime.RuleContext
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 import org.antlr.v4.kotlinruntime.atn.states.ATNState
 import org.antlr.v4.kotlinruntime.atn.states.RuleStopState
 import org.antlr.v4.kotlinruntime.atn.transitions.NotSetTransition

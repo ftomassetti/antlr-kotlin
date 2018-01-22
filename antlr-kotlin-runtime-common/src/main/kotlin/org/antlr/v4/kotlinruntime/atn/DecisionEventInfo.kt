@@ -6,7 +6,7 @@
 
 package org.antlr.v4.kotlinruntime.atn
 
-import org.antlr.v4.kotlinruntime.TokenStream
+import org.antlr.v4.kotlinruntime.token.TokenStream
 
 /**
  * This is the base class for gathering detailed information about prediction

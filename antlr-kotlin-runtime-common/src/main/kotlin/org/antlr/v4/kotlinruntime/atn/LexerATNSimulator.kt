@@ -19,6 +19,7 @@ import org.antlr.v4.kotlinruntime.atn.transitions.Transition
 import org.antlr.v4.kotlinruntime.dfa.DFA
 import org.antlr.v4.kotlinruntime.dfa.DFAState
 import org.antlr.v4.kotlinruntime.misc.Interval
+import org.antlr.v4.kotlinruntime.token.Token
 
 /** "dup" of ParserInterpreter  */
 class LexerATNSimulator(protected val recog: Lexer?, atn: ATN,

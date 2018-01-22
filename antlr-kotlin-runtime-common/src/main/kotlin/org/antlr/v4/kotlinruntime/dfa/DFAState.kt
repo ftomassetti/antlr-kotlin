@@ -7,7 +7,7 @@
 package org.antlr.v4.kotlinruntime.dfa
 
 import com.strumenta.kotlinmultiplatform.Arrays
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 import org.antlr.v4.kotlinruntime.atn.*
 import org.antlr.v4.kotlinruntime.misc.MurmurHash
 

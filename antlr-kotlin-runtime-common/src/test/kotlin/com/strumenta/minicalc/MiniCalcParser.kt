@@ -13,6 +13,8 @@ import org.antlr.v4.kotlinruntime.dfa.*
 import org.antlr.v4.kotlinruntime.tree.ParseTreeListener
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
 import org.antlr.v4.kotlinruntime.atn.ATN.Companion.INVALID_ALT_NUMBER
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenStream
 import kotlin.reflect.KClass
 
 object solver : TypeDeclarator {

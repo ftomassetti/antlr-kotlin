@@ -4,8 +4,9 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.token
 
+import org.antlr.v4.kotlinruntime.CharStream
 import org.antlr.v4.kotlinruntime.misc.Pair
 
 /** The default mechanism for creating tokens. It's used by default in Lexer and

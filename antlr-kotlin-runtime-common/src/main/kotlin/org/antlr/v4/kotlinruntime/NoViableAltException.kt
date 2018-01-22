@@ -6,6 +6,8 @@
 package org.antlr.v4.kotlinruntime
 
 import org.antlr.v4.kotlinruntime.atn.ATNConfigSet
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenStream
 
 /** Indicates that the parser could not decide which of two or more paths
  * to take based upon the remaining input. It tracks the starting token
@@ -13,19 +15,19 @@ import org.antlr.v4.kotlinruntime.atn.ATNConfigSet
  * in the various paths when the error. Reported by reportNoViableAlternative()
  */
 class NoViableAltException constructor(recognizer: Parser,
-                                                     input: TokenStream? = recognizer.readInputStream() as TokenStream?,
-                                                     /** The token object at the start index; the input stream might
+                                       input: TokenStream? = recognizer.readInputStream() as TokenStream?,
+                                       /** The token object at the start index; the input stream might
                                                       * not be buffering tokens so get a reference to it. (At the
                                                       * time the error occurred, of course the stream needs to keep a
                                                       * buffer all of the tokens but later we might not have access to those.)
                                                       */
 
                                                      val startToken: Token? = recognizer.currentToken,
-                                                     offendingToken: Token? = recognizer.currentToken,
-                                                     /** Which configurations did we try at input.index() that couldn't match input.LT(1)?  */
+                                       offendingToken: Token? = recognizer.currentToken,
+                                       /** Which configurations did we try at input.index() that couldn't match input.LT(1)?  */
 
                                                      val deadEndConfigs: ATNConfigSet? = null,
-                                                     ctx: ParserRuleContext? = recognizer.context) : RecognitionException(recognizer, input!!, ctx!!) {
+                                       ctx: ParserRuleContext? = recognizer.context) : RecognitionException(recognizer, input!!, ctx!!) {
 
     init {
         this.offendingToken = offendingToken

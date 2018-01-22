@@ -9,9 +9,10 @@ package org.antlr.v4.kotlinruntime.tree
 import com.strumenta.kotlinmultiplatform.Arrays
 import org.antlr.v4.kotlinruntime.*
 import org.antlr.v4.kotlinruntime.atn.ATN
-import org.antlr.v4.kotlinruntime.misc.Interval
 import org.antlr.v4.kotlinruntime.misc.Predicate
 import org.antlr.v4.kotlinruntime.misc.Utils
+import org.antlr.v4.kotlinruntime.token.CommonToken
+import org.antlr.v4.kotlinruntime.token.Token
 
 /** A set of utility routines useful for all kinds of ANTLR trees.  */
 object Trees {

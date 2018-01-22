@@ -8,7 +8,7 @@ package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.UUID
 import com.strumenta.kotlinmultiplatform.maxValue
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 import org.antlr.v4.kotlinruntime.atn.actions.*
 import org.antlr.v4.kotlinruntime.atn.states.*
 import org.antlr.v4.kotlinruntime.atn.transitions.*

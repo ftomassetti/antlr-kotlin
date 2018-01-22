@@ -8,7 +8,7 @@ package org.antlr.v4.kotlinruntime.atn.actions
 
 import org.antlr.v4.kotlinruntime.Lexer
 import org.antlr.v4.kotlinruntime.misc.MurmurHash
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 import org.antlr.v4.kotlinruntime.atn.LexerActionType
 
 /**

@@ -8,6 +8,7 @@ package org.antlr.v4.kotlinruntime
 import com.strumenta.kotlinmultiplatform.Arrays
 import com.strumenta.kotlinmultiplatform.Math
 import com.strumenta.kotlinmultiplatform.isCharUppercase
+import org.antlr.v4.kotlinruntime.token.Token
 
 /**
  * This class provides a default implementation of the [Vocabulary]

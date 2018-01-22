@@ -6,7 +6,7 @@
 
 package org.antlr.v4.kotlinruntime.atn.transitions
 
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 import org.antlr.v4.kotlinruntime.atn.states.ATNState
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
 

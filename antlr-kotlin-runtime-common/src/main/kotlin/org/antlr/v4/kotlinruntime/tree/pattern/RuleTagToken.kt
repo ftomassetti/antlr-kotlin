@@ -7,8 +7,8 @@
 package org.antlr.v4.kotlinruntime.tree.pattern
 
 import org.antlr.v4.kotlinruntime.CharStream
-import org.antlr.v4.kotlinruntime.Token
-import org.antlr.v4.kotlinruntime.TokenSource
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenSource
 
 val DEFAULT_CHANNEL = 0
 

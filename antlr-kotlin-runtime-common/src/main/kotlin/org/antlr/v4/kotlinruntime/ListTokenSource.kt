@@ -9,6 +9,10 @@ package org.antlr.v4.kotlinruntime
 import com.strumenta.kotlinmultiplatform.Math
 import com.strumenta.kotlinmultiplatform.NullPointerException
 import org.antlr.v4.kotlinruntime.misc.Pair
+import org.antlr.v4.kotlinruntime.token.CommonTokenFactory
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenFactory
+import org.antlr.v4.kotlinruntime.token.TokenSource
 
 /**
  * Provides an implementation of [TokenSource] as a wrapper around a list

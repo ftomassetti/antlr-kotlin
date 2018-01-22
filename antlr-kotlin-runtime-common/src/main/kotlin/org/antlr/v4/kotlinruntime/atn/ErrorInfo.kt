@@ -7,6 +7,7 @@
 package org.antlr.v4.kotlinruntime.atn
 
 import org.antlr.v4.kotlinruntime.*
+import org.antlr.v4.kotlinruntime.token.TokenStream
 
 /**
  * This class represents profiling event information for a syntax error

@@ -7,7 +7,7 @@
 package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.BitSet
-import org.antlr.v4.kotlinruntime.TokenStream
+import org.antlr.v4.kotlinruntime.token.TokenStream
 import org.antlr.v4.kotlinruntime.error.ANTLRErrorListener
 
 /**

@@ -7,11 +7,7 @@
 package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.assert
-import org.antlr.v4.kotlinruntime.Token
 import org.antlr.v4.kotlinruntime.misc.IntegerList
-import org.antlr.v4.kotlinruntime.misc.Interval
-import org.antlr.v4.kotlinruntime.misc.IntervalSet
-import org.antlr.v4.kotlinruntime.misc.Utils
 
 //import java.io.InvalidClassException
 //import java.util.*

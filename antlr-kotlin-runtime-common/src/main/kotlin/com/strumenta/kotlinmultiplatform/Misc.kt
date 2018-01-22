@@ -1,7 +1,5 @@
 package com.strumenta.kotlinmultiplatform
 
-import org.antlr.v4.kotlinruntime.Parser
-import org.antlr.v4.kotlinruntime.Token
 import kotlin.reflect.KClass
 
 expect fun <T> Array<T>.indices() : List<Int>

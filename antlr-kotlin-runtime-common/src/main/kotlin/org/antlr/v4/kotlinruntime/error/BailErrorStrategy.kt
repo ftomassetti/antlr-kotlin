@@ -8,6 +8,7 @@ package org.antlr.v4.kotlinruntime.error
 
 import org.antlr.v4.kotlinruntime.*
 import org.antlr.v4.kotlinruntime.misc.ParseCancellationException
+import org.antlr.v4.kotlinruntime.token.Token
 
 /**
  * This implementation of [ANTLRErrorStrategy] responds to syntax errors

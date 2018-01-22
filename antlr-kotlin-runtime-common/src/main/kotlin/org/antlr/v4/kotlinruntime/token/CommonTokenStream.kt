@@ -4,7 +4,7 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.token
 
 /**
  * This class extends [BufferedTokenStream] with functionality to filter

@@ -16,6 +16,8 @@ import org.antlr.v4.kotlinruntime.misc.DoubleKeyMap
 import org.antlr.v4.kotlinruntime.misc.Interval
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
 import org.antlr.v4.kotlinruntime.misc.Pair
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenStream
 
 
 ///**

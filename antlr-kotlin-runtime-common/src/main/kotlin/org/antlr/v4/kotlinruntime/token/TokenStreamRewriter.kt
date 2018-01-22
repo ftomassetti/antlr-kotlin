@@ -3,7 +3,7 @@
  * Use of this file is governed by the BSD 3-clause license that
  * can be found in the LICENSE.txt file in the project root.
  */
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.token
 
 import com.strumenta.kotlinmultiplatform.*
 import org.antlr.v4.kotlinruntime.misc.Interval
@@ -185,9 +185,9 @@ class TokenStreamRewriter(
         override fun toString(): String {
             return if (text == null) {
                 "<DeleteOp@" + tokenStream.get(index) +
-                        ".." + tokenStream.get(lastIndex) + ">"
+                        "" + tokenStream.get(lastIndex) + ">"
             } else "<ReplaceOp@" + tokenStream.get(index) +
-                    ".." + tokenStream.get(lastIndex) + ":\"" + text + "\">"
+                    "" + tokenStream.get(lastIndex) + ":\"" + text + "\">"
         }
     }
 
@@ -275,7 +275,7 @@ class TokenStreamRewriter(
 
     fun replace(programName: String, from: Int, to: Int, text: Any?) {
         if (from > to || from < 0 || to < 0 || to >= tokenStream.size()) {
-            throw IllegalArgumentException("replace: range invalid: " + from + ".." + to + "(size=" + tokenStream.size() + ")")
+            throw IllegalArgumentException("replace: range invalid: " + from + "" + to + "(size=" + tokenStream.size() + ")")
         }
         val op = ReplaceOp(from, to, text!!)
         val rewrites = getProgram(programName)
@@ -489,7 +489,8 @@ class TokenStreamRewriter(
 
         // WALK INSERTS
         for (i in rewrites.indices) {
-            val op = (rewrites[i] ?: continue) as? InsertBeforeOp ?: continue
+            val op = (rewrites[i] ?: continue) as? InsertBeforeOp
+                    ?: continue
             val iop = rewrites[i] as InsertBeforeOp
             // combine current insert with prior if any at same index
             val prevInserts = getKindOfOps<InsertBeforeOp>(rewrites, this.getType("InsertBeforeOp"), i)
@@ -543,7 +544,7 @@ class TokenStreamRewriter(
     }
 
     /** Get all operations before an index of a particular kind  */
-    protected fun <T : TokenStreamRewriter.RewriteOperation> getKindOfOps(rewrites: List<RewriteOperation?>, kind: Type, before: Int): List<T> {
+    protected fun <T : RewriteOperation> getKindOfOps(rewrites: List<RewriteOperation?>, kind: Type, before: Int): List<T> {
         val ops = ArrayList<T>()
         var i = 0
         while (i < before && i < rewrites.size) {

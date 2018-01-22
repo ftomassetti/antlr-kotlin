@@ -7,7 +7,7 @@
 package org.antlr.v4.kotlinruntime.tree
 
 import org.antlr.v4.kotlinruntime.RuleContext
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 
 /** The basic notion of a tree has a parent, a payload, and a list of children.
  * It is the most abstract interface for all the trees used by ANTLR.

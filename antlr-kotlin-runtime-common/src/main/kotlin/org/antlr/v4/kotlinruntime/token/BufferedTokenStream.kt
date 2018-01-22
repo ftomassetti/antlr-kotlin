@@ -4,10 +4,13 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.token
 
 import com.strumenta.kotlinmultiplatform.NullPointerException
 import com.strumenta.kotlinmultiplatform.assert
+import org.antlr.v4.kotlinruntime.IntStream
+import org.antlr.v4.kotlinruntime.Lexer
+import org.antlr.v4.kotlinruntime.RuleContext
 import org.antlr.v4.kotlinruntime.misc.Interval
 
 /**

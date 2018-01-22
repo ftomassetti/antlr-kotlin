@@ -6,8 +6,8 @@
 
 package org.antlr.v4.kotlinruntime.tree.pattern
 
-import org.antlr.v4.kotlinruntime.CommonToken
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.CommonToken
+import org.antlr.v4.kotlinruntime.token.Token
 
 /**
  * A [Token] object representing a token of a particular type; e.g.,

@@ -8,7 +8,7 @@ package org.antlr.v4.kotlinruntime.tree
 
 import org.antlr.v4.kotlinruntime.Parser
 import org.antlr.v4.kotlinruntime.RuleContext
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 
 /** An interface to access the tree of [RuleContext] objects created
  * during a parse that makes the data structure look like a simple parse tree.

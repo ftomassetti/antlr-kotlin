@@ -11,6 +11,10 @@ import org.antlr.v4.kotlinruntime.atn.LexerATNSimulator
 import org.antlr.v4.kotlinruntime.misc.IntegerStack
 import org.antlr.v4.kotlinruntime.misc.Interval
 import org.antlr.v4.kotlinruntime.misc.Pair
+import org.antlr.v4.kotlinruntime.token.CommonTokenFactory
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenFactory
+import org.antlr.v4.kotlinruntime.token.TokenSource
 
 /** A lexer is recognizer that draws input symbols from a character stream.
  * lexer grammars result in a subclass of this object. A Lexer object

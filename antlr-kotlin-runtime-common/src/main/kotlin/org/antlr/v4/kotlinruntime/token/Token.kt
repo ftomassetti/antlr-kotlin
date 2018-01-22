@@ -4,8 +4,10 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime
+package org.antlr.v4.kotlinruntime.token
 
+import org.antlr.v4.kotlinruntime.CharStream
+import org.antlr.v4.kotlinruntime.IntStream
 import org.antlr.v4.kotlinruntime.ast.Point
 
 /** A token has properties: text, type, line, character position in the line

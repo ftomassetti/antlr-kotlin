@@ -16,6 +16,8 @@ import org.antlr.v4.kotlinruntime.error.ANTLRErrorListener
 import org.antlr.v4.kotlinruntime.error.ConsoleErrorListener
 import org.antlr.v4.kotlinruntime.error.ProxyErrorListener
 import org.antlr.v4.kotlinruntime.misc.Utils
+import org.antlr.v4.kotlinruntime.token.Token
+import org.antlr.v4.kotlinruntime.token.TokenFactory
 
 typealias CopyOnWriteArrayList<E> = ArrayList<E>
 
