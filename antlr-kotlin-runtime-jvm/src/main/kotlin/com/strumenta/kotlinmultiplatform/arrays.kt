@@ -31,4 +31,8 @@ actual object Arrays {
     actual fun toString(a: Array<*>): String {
         return java.util.Arrays.toString(a)
     }
+
+    actual fun equals(a: IntArray, b: IntArray): Boolean {
+        return java.util.Arrays.equals(a, b)
+    }
 }

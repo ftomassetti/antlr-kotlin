@@ -31,12 +31,14 @@ actual object Arrays {
         if (a.size != b.size) {
             return false
         }
-        for (i in 0..a.size) {
-            if (a[i] != b[i]) {
-                return false
-            }
+        return (0..a.size).none { a[it] != b[it] }
+    }
+
+    actual fun equals(a: IntArray, b: IntArray): Boolean {
+        if (a.size != b.size) {
+            return false
         }
-        return true
+        return (0..a.size).none { a[it] != b[it] }
     }
 
     actual fun toString(a: Array<*>): String {
