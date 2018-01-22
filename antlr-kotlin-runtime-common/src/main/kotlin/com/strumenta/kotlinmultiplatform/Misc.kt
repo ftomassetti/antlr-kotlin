@@ -32,6 +32,8 @@ expect object Arrays {
 
     fun equals(a: Array<*>, b: Array<*>) : Boolean
 
+    fun equals(a: IntArray, b: IntArray) : Boolean
+
     fun toString(a: Array<*>): String
 }
 
