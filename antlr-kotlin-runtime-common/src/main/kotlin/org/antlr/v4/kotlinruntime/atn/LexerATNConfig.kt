@@ -6,6 +6,8 @@
 
 package org.antlr.v4.kotlinruntime.atn
 
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
+import org.antlr.v4.kotlinruntime.atn.states.DecisionState
 import org.antlr.v4.kotlinruntime.misc.MurmurHash
 import org.antlr.v4.kotlinruntime.misc.ObjectEqualityComparator
 

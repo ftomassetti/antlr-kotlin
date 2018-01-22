@@ -4,29 +4,35 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime.atn
+package org.antlr.v4.kotlinruntime.atn.transitions
 
+import org.antlr.v4.kotlinruntime.Token
 import org.antlr.v4.kotlinruntime.atn.states.ATNState
-import org.antlr.v4.kotlinruntime.atn.transitions.Transition
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
 
-/** TODO: make all transitions sets? no, should remove set edges  */
-class AtomTransition(target: ATNState,
-                     /** The token type or character value; or, signifies special accessLabel.  */
-                     val label: Int) : Transition(target) {
+/** A transition containing a set of values.  */
+open class SetTransition// TODO (sam): should we really allow null here?
+(target: ATNState, set: IntervalSet?) : Transition(target) {
+    val set: IntervalSet
 
     override val serializationType: Int
-        get() = Transition.ATOM
+        get() = SET
+
+    init {
+        var set = set
+        if (set == null) set = IntervalSet.of(Token.INVALID_TYPE)
+        this.set = set
+    }
 
     override fun accessLabel(): IntervalSet? {
-        return IntervalSet.of(label)
+        return set
     }
 
     override fun matches(symbol: Int, minVocabSymbol: Int, maxVocabSymbol: Int): Boolean {
-        return label == symbol
+        return set.contains(symbol)
     }
 
     override fun toString(): String {
-        return label.toString()
+        return set.toString()
     }
 }

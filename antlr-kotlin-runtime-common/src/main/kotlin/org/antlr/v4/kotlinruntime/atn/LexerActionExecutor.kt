@@ -11,6 +11,8 @@ import com.strumenta.kotlinmultiplatform.clone
 import org.antlr.v4.kotlinruntime.CharStream
 import org.antlr.v4.kotlinruntime.IntStream
 import org.antlr.v4.kotlinruntime.Lexer
+import org.antlr.v4.kotlinruntime.atn.actions.LexerAction
+import org.antlr.v4.kotlinruntime.atn.actions.LexerIndexedCustomAction
 import org.antlr.v4.kotlinruntime.dfa.DFA
 import org.antlr.v4.kotlinruntime.misc.MurmurHash
 

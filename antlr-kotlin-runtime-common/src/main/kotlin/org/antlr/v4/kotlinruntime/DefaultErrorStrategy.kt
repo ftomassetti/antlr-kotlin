@@ -7,11 +7,9 @@
 package org.antlr.v4.kotlinruntime
 
 import com.strumenta.kotlinmultiplatform.errMessage
-import org.antlr.v4.kotlinruntime.atn.ATN
-import org.antlr.v4.kotlinruntime.atn.ATNState
-import org.antlr.v4.kotlinruntime.atn.RuleTransition
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
+import org.antlr.v4.kotlinruntime.atn.transitions.RuleTransition
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
-import org.antlr.v4.kotlinruntime.misc.Pair
 
 /**
  * This is the default implementation of [ANTLRErrorStrategy] used for

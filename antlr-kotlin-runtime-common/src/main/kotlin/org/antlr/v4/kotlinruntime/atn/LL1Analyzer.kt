@@ -9,6 +9,11 @@ package org.antlr.v4.kotlinruntime.atn
 import com.strumenta.kotlinmultiplatform.BitSet
 import org.antlr.v4.kotlinruntime.RuleContext
 import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
+import org.antlr.v4.kotlinruntime.atn.states.RuleStopState
+import org.antlr.v4.kotlinruntime.atn.transitions.NotSetTransition
+import org.antlr.v4.kotlinruntime.atn.transitions.RuleTransition
+import org.antlr.v4.kotlinruntime.atn.transitions.WildcardTransition
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
 
 class LL1Analyzer(val atn: ATN) {

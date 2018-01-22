@@ -7,8 +7,8 @@
 package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.BitSet
-import org.antlr.v4.kotlinruntime.atn.PredictionMode.Companion.hasConflictingAltSet
-import org.antlr.v4.kotlinruntime.atn.PredictionMode.Companion.hasStateAssociatedWithOneAlt
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
+import org.antlr.v4.kotlinruntime.atn.states.RuleStopState
 import org.antlr.v4.kotlinruntime.misc.AbstractEqualityComparator
 import org.antlr.v4.kotlinruntime.misc.FlexibleHashMap
 import org.antlr.v4.kotlinruntime.misc.MurmurHash

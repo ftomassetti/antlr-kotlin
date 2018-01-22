@@ -8,6 +8,7 @@ package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.BitSet
 import com.strumenta.kotlinmultiplatform.Math
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
 import org.antlr.v4.kotlinruntime.misc.AbstractEqualityComparator
 import org.antlr.v4.kotlinruntime.misc.Array2DHashSet
 import org.antlr.v4.kotlinruntime.misc.DoubleKeyMap
@@ -221,10 +222,7 @@ open class ATNConfigSet constructor(
         if (configLookup!!.isEmpty()) return
 
         for (config in configs) {
-            //			int before = PredictionContext.getAllContextNodes(config.context).size();
             config.context = interpreter.getCachedContext(config.context!!)
-            //			int after = PredictionContext.getAllContextNodes(config.context).size();
-            //			System.out.println("configs "+before+"->"+after);
         }
     }
 

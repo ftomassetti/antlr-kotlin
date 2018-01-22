@@ -12,6 +12,7 @@ import com.strumenta.kotlinmultiplatform.assert
 import org.antlr.v4.kotlinruntime.EMPTY_RULECTX
 import org.antlr.v4.kotlinruntime.Recognizer
 import org.antlr.v4.kotlinruntime.RuleContext
+import org.antlr.v4.kotlinruntime.atn.transitions.RuleTransition
 import org.antlr.v4.kotlinruntime.misc.DoubleKeyMap
 import org.antlr.v4.kotlinruntime.misc.MurmurHash
 

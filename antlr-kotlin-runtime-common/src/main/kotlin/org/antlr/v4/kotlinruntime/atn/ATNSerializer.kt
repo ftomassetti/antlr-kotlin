@@ -6,6 +6,7 @@
 
 package org.antlr.v4.kotlinruntime.atn
 
+import com.strumenta.kotlinmultiplatform.assert
 import org.antlr.v4.kotlinruntime.Token
 import org.antlr.v4.kotlinruntime.misc.IntegerList
 import org.antlr.v4.kotlinruntime.misc.Interval
@@ -15,24 +16,24 @@ import org.antlr.v4.kotlinruntime.misc.Utils
 //import java.io.InvalidClassException
 //import java.util.*
 //
-//class ATNSerializer {
-//    var atn: ATN
-//    private val tokenNames: List<String>?
-//
-//    private interface CodePointSerializer {
-//        fun serializeCodePoint(data: IntegerList, cp: Int)
-//    }
-//
-//    constructor(atn: ATN) {
-//        assert(atn.grammarType != null)
-//        this.atn = atn
-//    }
-//
-//    constructor(atn: ATN, tokenNames: List<String>) {
-//        assert(atn.grammarType != null)
-//        this.atn = atn
-//        this.tokenNames = tokenNames
-//    }
+class ATNSerializer {
+    var atn: ATN
+    private var tokenNames: List<String>? = null
+
+    private interface CodePointSerializer {
+        fun serializeCodePoint(data: IntegerList, cp: Int)
+    }
+
+    constructor(atn: ATN) {
+        assert(atn.grammarType != null)
+        this.atn = atn
+    }
+
+    constructor(atn: ATN, tokenNames: List<String>) {
+        assert(atn.grammarType != null)
+        this.atn = atn
+        this.tokenNames = tokenNames
+    }
 //
 //    /** Serialize state descriptors, edge descriptors, and decisionstate map
 //     * into list of ints:
@@ -543,8 +544,8 @@ import org.antlr.v4.kotlinruntime.misc.Utils
 //        data.add((value shr 16).toChar())
 //    }
 //
-//    companion object {
-//
+    companion object {
+
 //        private fun serializeSets(
 //                data: IntegerList,
 //                sets: Collection<IntervalSet>,
@@ -595,5 +596,5 @@ import org.antlr.v4.kotlinruntime.misc.Utils
 //            val data = Utils.toCharArray(serialized)
 //            return ATNSerializer(atn, tokenNames).decode(data)
 //        }
-//    }
-//}
+    }
+}

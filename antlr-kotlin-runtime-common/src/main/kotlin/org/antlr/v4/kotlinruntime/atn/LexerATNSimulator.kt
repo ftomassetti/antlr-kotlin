@@ -9,6 +9,13 @@ package org.antlr.v4.kotlinruntime.atn
 import com.strumenta.kotlinmultiplatform.assert
 import com.strumenta.kotlinmultiplatform.outMessage
 import org.antlr.v4.kotlinruntime.*
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
+import org.antlr.v4.kotlinruntime.atn.states.DecisionState
+import org.antlr.v4.kotlinruntime.atn.states.RuleStopState
+import org.antlr.v4.kotlinruntime.atn.transitions.ActionTransition
+import org.antlr.v4.kotlinruntime.atn.transitions.PredicateTransition
+import org.antlr.v4.kotlinruntime.atn.transitions.RuleTransition
+import org.antlr.v4.kotlinruntime.atn.transitions.Transition
 import org.antlr.v4.kotlinruntime.dfa.DFA
 import org.antlr.v4.kotlinruntime.dfa.DFAState
 import org.antlr.v4.kotlinruntime.misc.Interval

@@ -6,7 +6,7 @@
 package org.antlr.v4.kotlinruntime
 
 import org.antlr.v4.kotlinruntime.atn.AbstractPredicateTransition
-import org.antlr.v4.kotlinruntime.atn.PredicateTransition
+import org.antlr.v4.kotlinruntime.atn.transitions.PredicateTransition
 
 
 private fun formatMessage(predicate: String?, message: String?): String {

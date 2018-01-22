@@ -7,6 +7,7 @@
 package org.antlr.v4.kotlinruntime.atn
 
 import org.antlr.v4.kotlinruntime.Recognizer
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
 import org.antlr.v4.kotlinruntime.misc.MurmurHash
 
 /** A tuple: (ATN state, predicted alt, syntactic, semantic context).
@@ -85,9 +86,9 @@ open class ATNConfig {
     }
 
     constructor(state: ATNState,
-                              alt: Int,
-                              context: PredictionContext?,
-                              semanticContext: SemanticContext = SemanticContext.NONE) {
+                alt: Int,
+                context: PredictionContext?,
+                semanticContext: SemanticContext = SemanticContext.NONE) {
         this.state = state
         this.alt = alt
         this.context = context
@@ -103,8 +104,8 @@ open class ATNConfig {
     }
 
     constructor(c: ATNConfig, state: ATNState,
-                              context: PredictionContext? = c.context,
-                              semanticContext: SemanticContext? = c.semanticContext) {
+                context: PredictionContext? = c.context,
+                semanticContext: SemanticContext? = c.semanticContext) {
         this.state = state
         this.alt = c.alt
         this.context = context
@@ -153,10 +154,7 @@ open class ATNConfig {
 
     fun toString(recog: Recognizer<*, *>?, showAlt: Boolean): String {
         val buf = StringBuilder()
-        //		if ( state.ruleIndex>=0 ) {
-        //			if ( recog!=null ) buf.append(recog.getRuleNames()[state.ruleIndex]+":");
-        //			else buf.append(state.ruleIndex+":");
-        //		}
+
         buf.append('(')
         buf.append(state)
         if (showAlt) {

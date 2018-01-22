@@ -10,7 +10,6 @@ import com.strumenta.kotlinmultiplatform.BitSet
 import org.antlr.v4.kotlinruntime.TokenStream
 import org.antlr.v4.kotlinruntime.ANTLRErrorListener
 
-
 /**
  * This class represents profiling event information for an ambiguity.
  * Ambiguities are decisions where a particular input resulted in an SLL

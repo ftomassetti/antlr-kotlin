@@ -8,6 +8,8 @@ package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.*
 import org.antlr.v4.kotlinruntime.*
+import org.antlr.v4.kotlinruntime.atn.states.*
+import org.antlr.v4.kotlinruntime.atn.transitions.*
 import org.antlr.v4.kotlinruntime.dfa.DFA
 import org.antlr.v4.kotlinruntime.dfa.DFAState
 import org.antlr.v4.kotlinruntime.misc.DoubleKeyMap

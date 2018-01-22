@@ -7,6 +7,7 @@
 package org.antlr.v4.kotlinruntime.atn
 
 import com.strumenta.kotlinmultiplatform.assert
+import org.antlr.v4.kotlinruntime.atn.states.ATNState
 
 open class SingletonPredictionContext internal constructor(val parent: PredictionContext?, val returnState: Int) : PredictionContext(if (parent != null) PredictionContext.calculateHashCode(parent, returnState) else PredictionContext.calculateEmptyHashCode()) {
 

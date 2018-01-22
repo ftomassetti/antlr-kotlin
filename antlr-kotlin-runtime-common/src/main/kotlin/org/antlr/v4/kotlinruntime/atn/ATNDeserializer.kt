@@ -9,6 +9,9 @@ package org.antlr.v4.kotlinruntime.atn
 import com.strumenta.kotlinmultiplatform.UUID
 import com.strumenta.kotlinmultiplatform.maxValue
 import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.atn.actions.*
+import org.antlr.v4.kotlinruntime.atn.states.*
+import org.antlr.v4.kotlinruntime.atn.transitions.*
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
 import org.antlr.v4.kotlinruntime.misc.Pair
 
@@ -220,10 +223,6 @@ class ATNDeserializer constructor(deserializationOptions: ATNDeserializationOpti
             val arg2 = toInt(data[p + 4])
             val arg3 = toInt(data[p + 5])
             val trans = edgeFactory(atn, ttype, src, trg, arg1, arg2, arg3, sets)
-            //			System.out.println("EDGE "+trans.getClass().getSimpleName()+" "+
-            //							   src+"->"+trg+
-            //					   " "+Transition.serializationNames[ttype]+
-            //					   " "+arg1+","+arg2+","+arg3);
             val srcState = atn.states.get(src)
             srcState!!.addTransition(trans)
             p += 6
@@ -321,7 +320,8 @@ class ATNDeserializer constructor(deserializationOptions: ATNDeserializationOpti
                 val legacyLexerActions = ArrayList<LexerAction>()
                 for (state in atn.states) {
                     for (i in 0 until state!!.numberOfTransitions) {
-                        val transition = state!!.transition(i) as? ActionTransition ?: continue
+                        val transition = state!!.transition(i) as? ActionTransition
+                                ?: continue
 
                         val ruleIndex = (transition as ActionTransition).ruleIndex
                         val actionIndex = (transition as ActionTransition).actionIndex
@@ -375,7 +375,8 @@ class ATNDeserializer constructor(deserializationOptions: ATNDeserializationOpti
                             continue
                         }
 
-                        val maybeLoopEndState = state.transition(state.numberOfTransitions - 1).target as? LoopEndState ?: continue
+                        val maybeLoopEndState = state.transition(state.numberOfTransitions - 1).target as? LoopEndState
+                                ?: continue
 
                         if (maybeLoopEndState.epsilonOnlyTransitions && maybeLoopEndState.transition(0).target is RuleStopState) {
                             endState = state

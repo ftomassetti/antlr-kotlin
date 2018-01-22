@@ -4,29 +4,31 @@
  * can be found in the LICENSE.txt file in the project root.
  */
 
-package org.antlr.v4.kotlinruntime.atn
+package org.antlr.v4.kotlinruntime.atn.transitions
 
 import org.antlr.v4.kotlinruntime.atn.states.ATNState
-import org.antlr.v4.kotlinruntime.atn.transitions.Transition
 import org.antlr.v4.kotlinruntime.misc.IntervalSet
 
-/** TODO: make all transitions sets? no, should remove set edges  */
-class AtomTransition(target: ATNState,
-                     /** The token type or character value; or, signifies special accessLabel.  */
-                     val label: Int) : Transition(target) {
+class RangeTransition(target: ATNState, val from: Int, val to: Int) : Transition(target) {
 
     override val serializationType: Int
-        get() = Transition.ATOM
+        get() = RANGE
 
     override fun accessLabel(): IntervalSet? {
-        return IntervalSet.of(label)
+        return IntervalSet.of(from, to)
     }
 
     override fun matches(symbol: Int, minVocabSymbol: Int, maxVocabSymbol: Int): Boolean {
-        return label == symbol
+        return symbol >= from && symbol <= to
     }
 
     override fun toString(): String {
-        return label.toString()
+        TODO()
+//        return StringBuilder("'")
+//                .appendCodePoint(from)
+//                .append("'..'")
+//                .appendCodePoint(to)
+//                .append("'")
+//                .toString()
     }
 }
