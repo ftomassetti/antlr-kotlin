@@ -23,15 +23,14 @@ import org.antlr.v4.kotlinruntime.token.TokenSource
  */
 abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
 
-
-//    /** Set the char stream and reset the lexer  */
-//    fun setInputStream(input: IntStream) {
-//        this.inputStream = null
-//        this._tokenFactorySourcePair = Pair<TokenSource, CharStream>(this, inputStream)
-//        reset()
-//        this.inputStream = input as CharStream
-//        this._tokenFactorySourcePair = Pair<TokenSource, CharStream>(this, readInputStream())
-//    }
+    /** Set the char stream and reset the lexer  */
+    fun setInputStream(input: IntStream) {
+        this.inputStream = null
+        this._tokenFactorySourcePair = Pair<TokenSource, CharStream>(this, inputStream)
+        reset()
+        this.inputStream = input as CharStream
+        this._tokenFactorySourcePair = Pair<TokenSource, CharStream>(this, readInputStream())
+    }
 
     override fun assignInputStream(newValue: IntStream?) {
         assignInputStream(newValue as CharStream?)
@@ -47,7 +46,6 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
     override fun readInputStream() : CharStream? {
         return this.inputStream as CharStream?
     }
-
 
     protected var _tokenFactorySourcePair: Pair<TokenSource, CharStream>? = null
 
@@ -210,9 +208,6 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
                 _text = null
                 do {
                     type = Token.INVALID_TYPE
-//                    				println("nextToken line "+_tokenStartLine+" at "+inputStream!!.LA(1)+
-//                    								   " in mode "+_mode+
-//                    								   " at index "+ inputStream!!.index())
                     var ttype: Int
                     try {
                         ttype = interpreter!!.match(readInputStream()!!, _mode)
@@ -270,9 +265,6 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
         mode(_modeStack.pop())
         return _mode
     }
-
-
-
 
     /** By default does not support multiple emits per nextToken invocation
      * for efficiency reasons.  Subclass and override this method, nextToken,
@@ -351,8 +343,6 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
      * to do sophisticated error recovery if you are in a fragment rule.
      */
     fun recover(re: RecognitionException) {
-        //System.out.println("consuming char "+(char)input.LA(1)+" during recovery");
-        //re.printStackTrace();
         // TODO: Do we lose character or line position information?
         inputStream!!.consume()
     }
