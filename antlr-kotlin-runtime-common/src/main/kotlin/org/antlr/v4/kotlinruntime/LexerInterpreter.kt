@@ -12,9 +12,10 @@ import org.antlr.v4.kotlinruntime.atn.LexerATNSimulator
 import org.antlr.v4.kotlinruntime.atn.PredictionContextCache
 import org.antlr.v4.kotlinruntime.dfa.DFA
 
-class LexerInterpreter(override val grammarFileName: String, override val vocabulary: Vocabulary, ruleNames: Collection<String>, channelNames: Collection<String>, modeNames: Collection<String>, override val atn: ATN, input: CharStream) : Lexer(input) {
-
-
+class LexerInterpreter(override val grammarFileName: String,
+                       override val vocabulary: Vocabulary,
+                       ruleNames: Collection<String>, channelNames: Collection<String>,
+                       modeNames: Collection<String>, override val atn: ATN, input: CharStream) : Lexer(input) {
 
     @Deprecated("")
     @get:Deprecated("")
@@ -27,12 +28,14 @@ class LexerInterpreter(override val grammarFileName: String, override val vocabu
     protected val _sharedContextCache = PredictionContextCache()
 
     @Deprecated("")
-    constructor(grammarFileName: String, tokenNames: Collection<String>, ruleNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: CharStream) : this(grammarFileName, VocabularyImpl.fromTokenNames(tokenNames.toTypedArray<String?>()), ruleNames, ArrayList<String>(), modeNames, atn, input) {
-    }
+    constructor(grammarFileName: String, tokenNames: Collection<String>, ruleNames: Collection<String>,
+                modeNames: Collection<String>, atn: ATN, input: CharStream) :
+            this(grammarFileName, VocabularyImpl.fromTokenNames(tokenNames.toTypedArray<String?>()), ruleNames, ArrayList<String>(), modeNames, atn, input)
 
     @Deprecated("")
-    constructor(grammarFileName: String, vocabulary: Vocabulary, ruleNames: Collection<String>, modeNames: Collection<String>, atn: ATN, input: CharStream) : this(grammarFileName, vocabulary, ruleNames, ArrayList<String>(), modeNames, atn, input) {
-    }
+    constructor(grammarFileName: String, vocabulary: Vocabulary, ruleNames: Collection<String>,
+                modeNames: Collection<String>, atn: ATN, input: CharStream)
+            : this(grammarFileName, vocabulary, ruleNames, ArrayList<String>(), modeNames, atn, input)
 
     init {
 
@@ -55,8 +58,4 @@ class LexerInterpreter(override val grammarFileName: String, override val vocabu
         this.interpreter = LexerATNSimulator(this, atn, _decisionToDFA, _sharedContextCache)
     }
 
-//    fun getVocabulary(): Vocabulary {
-//        return vocabulary ?: super.vocabulary
-//
-//    }
 }

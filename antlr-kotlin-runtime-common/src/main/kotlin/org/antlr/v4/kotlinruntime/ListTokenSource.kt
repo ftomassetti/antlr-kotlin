@@ -181,26 +181,5 @@ constructor(
         return t
     }
 
-//    /**
-//     * {@inheritDoc}
-//     */
-//    fun getSourceName(): String {
-//        if (sourceName != null) {
-//            return sourceName
-//        }
-//
-//        val inputStream = inputStream
-//        return if (inputStream != null) {
-//            inputStream!!.sourceName!!
-//        } else "List"
-//
-//    }
 }
-/**
- * Constructs a new [ListTokenSource] instance from the specified
- * collection of [Token] objects.
- *
- * @param tokens The collection of [Token] objects to provide as a
- * [TokenSource].
- * @exception NullPointerException if `tokens` is `null`
- */
+
