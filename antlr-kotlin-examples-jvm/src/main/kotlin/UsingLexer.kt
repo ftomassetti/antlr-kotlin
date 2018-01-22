@@ -1,7 +1,7 @@
 
 import org.antlr.v4.kotlinruntime.ANTLRInputStream
 import org.antlr.v4.kotlinruntime.CharStream
-import org.antlr.v4.kotlinruntime.Token
+import org.antlr.v4.kotlinruntime.token.Token
 import java.lang.RuntimeException
 import me.tomassetti.minicalc.MiniCalcLexer
 

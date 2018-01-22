@@ -24,7 +24,7 @@ import org.antlr.v4.kotlinruntime.token.TokenSource
 abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
 
     /** Set the char stream and reset the lexer  */
-    fun setInputStream(input: IntStream) {
+    fun assignInputStreamNotNullable(input: IntStream) {
         this.inputStream = null
         this._tokenFactorySourcePair = Pair<TokenSource, CharStream>(this, inputStream)
         reset()
