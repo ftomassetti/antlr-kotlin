@@ -39,6 +39,19 @@ actual object Arrays {
         return true
     }
 
+    actual fun equals(a: IntArray, b: IntArray): Boolean {
+        if (a === b) return true
+        if (a.size != b.size) {
+            return false
+        }
+        for (i in a.indices) {
+            if (a[i] != b[i]) {
+                return false
+            }
+        }
+        return true
+    }
+
     actual fun toString(a: Array<*>): String {
         return "[${a.joinToString(separator = ", ") { it?.toString() ?: "null"}}]"
     }

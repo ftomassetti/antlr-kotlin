@@ -6,6 +6,9 @@
 
 package org.antlr.v4.kotlinruntime.atn
 
+import com.strumenta.kotlinmultiplatform.Arrays
+import com.strumenta.kotlinmultiplatform.equals
+
 class ArrayPredictionContext(
         /** Parent can be null only if full ctx mode and we make an array
          * from [.EMPTY] and non-empty. We merge [.EMPTY] by using null parent and
@@ -57,9 +60,8 @@ class ArrayPredictionContext(
             return false // can't be same if hash is different
         }
 
-        val a = o as ArrayPredictionContext?
-        TODO()
-        //return Arrays.equals(returnStates, a!!.returnStates) && Arrays.equals(parents, a.parents)
+    o as ArrayPredictionContext
+    return Arrays.equals(returnStates, o.returnStates) && Arrays.equals(parents, o.parents)
     }
 //
 //    override fun toString(): String {
