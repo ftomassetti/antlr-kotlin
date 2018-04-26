@@ -2,17 +2,13 @@ import org.antlr.v4.kotlinruntime.ANTLRInputStream
 import org.antlr.v4.kotlinruntime.CommonTokenStream
 import org.antlr.v4.kotlinruntime.ast.Point
 import org.antlr.v4.kotlinruntime.ast.pos
-import org.antlr.v4.kotlinruntime.atn.EmptyPredictionContext
-import org.antlr.v4.kotlinruntime.atn.PredictionContext
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
-import kotlin.test.*
 import kotlin.test.Test as test
-import me.tomassetti.minicalc.MiniCalcLexer
-import me.tomassetti.minicalc.MiniCalcParser
 
 class TestingParser {
 
-    @test fun simplestFileUsingHomogeneousAPI() {
+    @test
+    fun simplestFileUsingHomogeneousAPI() {
         val input = ANTLRInputStream("input Int width\n")
         val lexer = MiniCalcLexer(input)
         var parser = MiniCalcParser(CommonTokenStream(lexer))
@@ -68,12 +64,12 @@ class TestingParser {
         val inputDecl = statement.findInputDeclaration()!!
 
         val inputKw = inputDecl.INPUT()
-        assertEquals("input", inputKw.text)
+        assertEquals("input", inputKw?.text)
 
         val type = inputDecl.findType()!!
 
         val intKw = (type as MiniCalcParser.IntegerContext).INT()
-        assertEquals("Int", intKw.text)
+        assertEquals("Int", intKw?.text)
 
         val id = inputDecl.ID()!!
         assertEquals("width", id.text)
