@@ -2,10 +2,9 @@ import org.antlr.v4.kotlinruntime.ANTLRInputStream
 import org.antlr.v4.kotlinruntime.CommonTokenStream
 import org.antlr.v4.kotlinruntime.ast.Point
 import org.antlr.v4.kotlinruntime.ast.pos
-import org.antlr.v4.kotlinruntime.atn.EmptyPredictionContext
-import org.antlr.v4.kotlinruntime.atn.PredictionContext
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
-import kotlin.test.*
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import kotlin.test.Test as test
 
 class TestingParser {
@@ -66,12 +65,12 @@ class TestingParser {
         val inputDecl = statement.findInputDeclaration()!!
 
         val inputKw = inputDecl.INPUT()
-        assertEquals("input", inputKw.text)
+        assertEquals("input", inputKw?.text)
 
         val type = inputDecl.findType()!!
 
         val intKw = (type as MiniCalcParser.IntegerContext).INT()
-        assertEquals("Int", intKw.text)
+        assertEquals("Int", intKw?.text)
 
         val id = inputDecl.ID()!!
         assertEquals("width", id.text)

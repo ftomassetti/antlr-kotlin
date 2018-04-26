@@ -27,12 +27,24 @@ expect object Arrays {
 
     fun equals(a: Array<*>, b: Array<*>): Boolean
 
+    fun equals(a: IntArray, b: IntArray): Boolean
+
     fun toString(a: Array<*>): String
 }
 
-expect class BitSet {
-    constructor()
+fun Arrays.equals(a: Array<*>?, b: Array<*>?): Boolean {
+    if (a == null && b == null) return true
+    if (a == null && b != null || a != null && b == null) return false
+    return equals(a!!, b!!)
+}
 
+fun Arrays.equals(a: IntArray?, b: IntArray?): Boolean {
+    if (a == null && b == null) return true
+    if (a == null && b != null || a != null && b == null) return false
+    return equals(a!!, b!!)
+}
+
+expect class BitSet() {
     fun set(bitIndex: Int)
     fun clear(bitIndex: Int)
     fun get(bitIndex: Int): Boolean
@@ -40,8 +52,6 @@ expect class BitSet {
     fun nextSetBit(i: Int): Int
     fun or(alts: BitSet)
 }
-
-//expect class ArrayList<T> : List<T>
 
 expect object Collections {
     fun unmodifiableList(asList: Collection<*>): List<*>

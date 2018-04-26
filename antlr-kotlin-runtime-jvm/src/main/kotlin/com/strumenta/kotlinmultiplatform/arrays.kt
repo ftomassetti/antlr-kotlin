@@ -28,6 +28,10 @@ actual object Arrays {
         return java.util.Arrays.equals(a, b)
     }
 
+    actual fun equals(a: IntArray, b: IntArray): Boolean {
+        return java.util.Arrays.equals(a, b)
+    }
+
     actual fun toString(a: Array<*>): String {
         return java.util.Arrays.toString(a)
     }
