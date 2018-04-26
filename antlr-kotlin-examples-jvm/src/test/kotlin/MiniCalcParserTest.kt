@@ -1,8 +1,12 @@
+import me.tomassetti.minicalc.MiniCalcLexer
+import me.tomassetti.minicalc.MiniCalcParser
 import org.antlr.v4.kotlinruntime.ANTLRInputStream
 import org.antlr.v4.kotlinruntime.CommonTokenStream
 import org.antlr.v4.kotlinruntime.ast.Point
 import org.antlr.v4.kotlinruntime.ast.pos
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import kotlin.test.Test as test
 
 class TestingParser {
