@@ -336,24 +336,24 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 35
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,0,context) ) {
-			1 -> { 
+			1 -> {
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 32
 			match(String) as Token
-			} }
-			2 -> { 
+			}}
+			2 -> {
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 33
 			match(QuotedString) as Token
-			} }
-			3 -> { 
+			}}
+			3 -> {
 			enterOuterAlt(_localctx, 3)
 			if (true){
 			this.state = 34
 			identifier()
-			} }
+			}}
 			}
 		}
 		catch (re: RecognitionException) {
@@ -548,18 +548,18 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 51
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,3,context) ) {
-			1 -> { 
+			1 -> {
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 49
 			numericRange()
-			} }
-			2 -> { 
+			}}
+			2 -> {
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 50
 			dateRange()
-			} }
+			}}
 			}
 		}
 		catch (re: RecognitionException) {
@@ -690,30 +690,30 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 72
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,4,context) ) {
-			1 -> { 
+			1 -> {
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 63
 			numericComparator()
 			this.state = 64
 			numericValue()
-			} }
-			2 -> { 
+			}}
+			2 -> {
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 66
 			dateComparator()
 			this.state = 67
 			dateValue()
-			} }
-			3 -> { 
+			}}
+			3 -> {
 			enterOuterAlt(_localctx, 3)
 			if (true){
 			this.state = 69
 			textComparator()
 			this.state = 70
 			textValue()
-			} }
+			}}
 			}
 		}
 		catch (re: RecognitionException) {
@@ -751,22 +751,22 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 80
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,5,context) ) {
-			1 -> { 
+			1 -> {
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 74
 			identifier()
 			this.state = 75
 			term()
-			} }
-			2 -> { 
+			}}
+			2 -> {
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 77
 			identifier()
 			this.state = 78
 			range()
-			} }
+			}}
 			}
 		}
 		catch (re: RecognitionException) {
