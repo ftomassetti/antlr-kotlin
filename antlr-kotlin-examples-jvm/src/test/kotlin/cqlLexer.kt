@@ -19,7 +19,7 @@ class cqlLexer(val input: CharStream) : Lexer(input) {
         get() = "cql.g4"
 
     override val atn: ATN
-		get() = MiniCalcLexer.Companion.ATN
+		get() = cqlLexer.Companion.ATN
 
 	companion object {
 		val decisionToDFA : Array<DFA>
