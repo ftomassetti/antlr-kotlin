@@ -12,6 +12,7 @@ import org.antlr.v4.kotlinruntime.tree.ParseTreeListener
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
 import org.antlr.v4.kotlinruntime.atn.ATN.Companion.INVALID_ALT_NUMBER
 import kotlin.reflect.KClass
+import org.antlr.v4.kotlinruntime.token.TokenStream
 
 object solver : TypeDeclarator {
 	override val classesByName : List<KClass<*>> = listOf(cqlParser.IdentifierContext::class,
@@ -36,11 +37,11 @@ class cqlParser(input: TokenStream) : Parser(input) {
         get() = "cql.g4"
 
     override val tokenNames: Array<String?>?
-        get() = MiniCalcParser.Companion.tokenNames
+        get() = cqlParser.Companion.tokenNames
     override val ruleNames: Array<String>?
-        get() = MiniCalcParser.Companion.ruleNames
+        get() = cqlParser.Companion.ruleNames
     override val atn: ATN
-        get() = MiniCalcParser.Companion.ATN
+        get() = cqlParser.Companion.ATN
 
     enum class Tokens(val id: Int) {
         EOF(-1),
@@ -335,24 +336,24 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 35
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,0,context) ) {
-			1 -> 
+			1 -> { 
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 32
 			match(String) as Token
-			}
-			2 -> 
+			} }
+			2 -> { 
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 33
 			match(QuotedString) as Token
-			}
-			3 -> 
+			} }
+			3 -> { 
 			enterOuterAlt(_localctx, 3)
 			if (true){
 			this.state = 34
 			identifier()
-			}
+			} }
 			}
 		}
 		catch (re: RecognitionException) {
@@ -436,19 +437,19 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 42
 			errorHandler.sync(this)
 			when (_input!!.LA(1)) {
-			LIKE -> EQUALS ->  /*LL1AltBlock*/{
+			LIKE , EQUALS  ->  /*LL1AltBlock*/{
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 39
 			textComparator()
 			}}
-			GT ->  /*LL1AltBlock*/{
+			GT  ->  /*LL1AltBlock*/{
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 40
 			match(GT) as Token
 			}}
-			LT ->  /*LL1AltBlock*/{
+			LT  ->  /*LL1AltBlock*/{
 			enterOuterAlt(_localctx, 3)
 			if (true){
 			this.state = 41
@@ -492,19 +493,19 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 47
 			errorHandler.sync(this)
 			when (_input!!.LA(1)) {
-			LIKE -> EQUALS ->  /*LL1AltBlock*/{
+			LIKE , EQUALS  ->  /*LL1AltBlock*/{
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 44
 			textComparator()
 			}}
-			GT ->  /*LL1AltBlock*/{
+			GT  ->  /*LL1AltBlock*/{
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 45
 			match(GT) as Token
 			}}
-			LT ->  /*LL1AltBlock*/{
+			LT  ->  /*LL1AltBlock*/{
 			enterOuterAlt(_localctx, 3)
 			if (true){
 			this.state = 46
@@ -547,18 +548,18 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 51
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,3,context) ) {
-			1 -> 
+			1 -> { 
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 49
 			numericRange()
-			}
-			2 -> 
+			} }
+			2 -> { 
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 50
 			dateRange()
-			}
+			} }
 			}
 		}
 		catch (re: RecognitionException) {
@@ -689,30 +690,30 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 72
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,4,context) ) {
-			1 -> 
+			1 -> { 
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 63
 			numericComparator()
 			this.state = 64
 			numericValue()
-			}
-			2 -> 
+			} }
+			2 -> { 
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 66
 			dateComparator()
 			this.state = 67
 			dateValue()
-			}
-			3 -> 
+			} }
+			3 -> { 
 			enterOuterAlt(_localctx, 3)
 			if (true){
 			this.state = 69
 			textComparator()
 			this.state = 70
 			textValue()
-			}
+			} }
 			}
 		}
 		catch (re: RecognitionException) {
@@ -750,22 +751,22 @@ class cqlParser(input: TokenStream) : Parser(input) {
 			this.state = 80
 			errorHandler.sync(this)
 			when ( interpreter!!.adaptivePredict(_input!!,5,context) ) {
-			1 -> 
+			1 -> { 
 			enterOuterAlt(_localctx, 1)
 			if (true){
 			this.state = 74
 			identifier()
 			this.state = 75
 			term()
-			}
-			2 -> 
+			} }
+			2 -> { 
 			enterOuterAlt(_localctx, 2)
 			if (true){
 			this.state = 77
 			identifier()
 			this.state = 78
 			range()
-			}
+			} }
 			}
 		}
 		catch (re: RecognitionException) {
@@ -786,8 +787,8 @@ class cqlParser(input: TokenStream) : Parser(input) {
 		fun findSearchterm() : List<SearchtermContext> = getRuleContexts(solver.getType("SearchtermContext"))
 		fun findSearchterm(i: Int) : SearchtermContext? = getRuleContext(solver.getType("SearchtermContext"),i)
 		fun EOF() : TerminalNode = getToken(cqlParser.Tokens.EOF.id, 0) as TerminalNode
-		fun AND() : List<TerminalNode> = getTokens(cqlParser.Tokens.AND.id) as TerminalNode
-		fun AND(int i) : TerminalNode = getToken(cqlParser.Tokens.AND.id, i) as TerminalNode
+		fun AND() : List<TerminalNode> = getTokens(cqlParser.Tokens.AND.id)
+		fun AND(i: Int) : TerminalNode = getToken(cqlParser.Tokens.AND.id, i) as TerminalNode
 		constructor(parent: ParserRuleContext?, invokingState: Int) : super(parent, invokingState){
 		}
 		override fun enterRule(listener: ParseTreeListener) {

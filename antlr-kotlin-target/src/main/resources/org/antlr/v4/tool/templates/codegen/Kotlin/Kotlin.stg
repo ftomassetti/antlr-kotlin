@@ -62,6 +62,7 @@ import org.antlr.v4.kotlinruntime.tree.ParseTreeListener
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
 import org.antlr.v4.kotlinruntime.atn.ATN.Companion.INVALID_ALT_NUMBER
 import kotlin.reflect.KClass
+import org.antlr.v4.kotlinruntime.token.TokenStream
 
 <parser>
 >>
@@ -517,7 +518,7 @@ errorHandler.sync(this)
 <if(choice.label)><labelref(choice.label)> = _input!!.LT(1)<endif>
 <preamble; separator="\n">
 when ( interpreter!!.adaptivePredict(_input!!,<choice.decision>,context) ) {
-<alts:{alt |<i> -> <alt>}; separator="\n">
+<alts:{alt |<i> -> { <alt> \}}; separator="\n">
 }
 >>
 
@@ -594,7 +595,7 @@ bitsetInlineComparison(s, bits) ::= <%
 %>
 
 cases(ttypes) ::= <<
-<ttypes:{t | <t> ->}; separator=" "> >>
+<ttypes:{t | <t> }; separator=", "> -> >>
 
 InvokeRule(r, argExprsChunks) ::= <<
 this.state = <r.stateNumber>
@@ -707,9 +708,9 @@ RuleContextListDecl(rdecl) ::= "var <rdecl.name> : MutableList\<<rdecl.ctxName>>
 ContextTokenGetterDecl(t)      ::=
     "fun <t.name>() : TerminalNode = getToken(<parser.name>.Tokens.<t.name>.id, 0) as TerminalNode"
 ContextTokenListGetterDecl(t)  ::=
-    "fun <t.name>() : List\<TerminalNode> = getTokens(<parser.name>.Tokens.<t.name>.id) as TerminalNode"
+    "fun <t.name>() : List\<TerminalNode> = getTokens(<parser.name>.Tokens.<t.name>.id)"
 ContextTokenListIndexedGetterDecl(t)  ::= <<
-fun <t.name>(int i) : TerminalNode = getToken(<parser.name>.Tokens.<t.name>.id, i) as TerminalNode
+fun <t.name>(i: Int) : TerminalNode = getToken(<parser.name>.Tokens.<t.name>.id, i) as TerminalNode
 >>
 ContextRuleGetterDecl(r)       ::= <<
 fun find<r.name; format="cap">() : <r.ctxName>? = getRuleContext(solver.getType("<r.ctxName>"),0)
