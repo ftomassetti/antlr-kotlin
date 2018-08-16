@@ -12,7 +12,7 @@ import org.antlr.v4.kotlinruntime.tree.ParseTreeListener
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
 import org.antlr.v4.kotlinruntime.atn.ATN.Companion.INVALID_ALT_NUMBER
 import kotlin.reflect.KClass
-import org.antlr.v4.kotlinruntime.token.TokenStream
+import org.antlr.v4.kotlinruntime.TokenStream
 
 object solver : TypeDeclarator {
 	override val classesByName : List<KClass<*>> = listOf(cqlParser.IdentifierContext::class,
